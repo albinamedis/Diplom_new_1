@@ -71,6 +71,7 @@ public class BurgerTest {
         Bun bun = new Bun("морковка", 19.0f);
         burger.setBuns(bun);
         String actual = burger.getReceipt();
-        assert(!actual.isEmpty());
+        String expected = "морковка";
+        assertTrue(actual.indexOf(expected) != -1);
     }
 }
