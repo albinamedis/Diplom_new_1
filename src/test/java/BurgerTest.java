@@ -71,7 +71,11 @@ public class BurgerTest {
         Bun bun = new Bun("морковка", 19.0f);
         burger.setBuns(bun);
         String actual = burger.getReceipt();
-        String expected = "морковка";
-        assertTrue(actual.indexOf(expected) != -1);
+        String[] actualMassiv =  actual.split("\n");
+        String[] expected = {"(==== морковка ====)", "= sauce космос с соусом =", "= filling космос с начинкой =",
+        "= filling космос22131313 =", "(==== морковка ====)", "", "Price: 1538,000000"};
+        for (int i=0; i < actualMassiv.length; i++) {
+            assertEquals(expected[i], actualMassiv[i].trim());
+        }
     }
 }
